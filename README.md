@@ -1,6 +1,6 @@
 # homeexam2k24
 
-This is the home exam of the course [D7032E Software engineering](https://www.ltu.se/utbildning/kurs/d70/d7032e-programvaruteknik) for fourth year students in Computer Science at Luleå tekniska universitet.
+This is the home exam for the course [D7032E Software engineering](https://www.ltu.se/utbildning/kurs/d70/d7032e-programvaruteknik) for fourth year students in Computer Science at Luleå tekniska universitet.
 
 ## How to run
 
