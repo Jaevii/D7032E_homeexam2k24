@@ -81,7 +81,6 @@ public class PointSalad {
             this.veggieCards[0] = cards.remove(0);
             this.veggieCards[1] = cards.remove(0);
             this.veggieCards[0].criteriaSideUp = false;
-            ;
             this.veggieCards[1].criteriaSideUp = false;
         }
 
