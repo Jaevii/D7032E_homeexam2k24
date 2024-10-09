@@ -6,9 +6,10 @@ This is the home exam for the course [D7032E Software engineering](https://www.l
 
 1. Download the repo files
 
-2. While inside the folder, run `chmod +x build.sh` in your terminal
+2. While inside the repo folder, run `chmod +x compile.sh server.sh client.sh` in your terminal
 
-3. Run `./build.sh` and choose the number of players/bots
+3. Run `./compile.sh` 
 
+4. Run `./server.sh` to start and host the server
 
-Connect an "online" client player with `java -cp .:json.jar PointSalad 127.0.0.1`
+5. Run `./client.sh` to connect to the server from another client

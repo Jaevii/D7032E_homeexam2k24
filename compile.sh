@@ -22,8 +22,8 @@ CLASSPATH=$(find "$LIB_DIR" -name "*.jar" | tr '\n' "$SEP")
 # Compile the Java source files
 javac -d "$BUILD_DIR" -sourcepath "$SRC_DIR" -cp "$CLASSPATH" $(find "$SRC_DIR" -name "*.java")
 
-echo "\nCompilation finished. Classes are in the $BUILD_DIR directory. \n"
-
-# Run the main class
-echo "Running "$MAIN_CLASS"... \n"
-java -cp "$BUILD_DIR$SEP$CLASSPATH" "$MAIN_CLASS"
+if [ $? -eq 0 ]; then
+    echo "Compilation successful."
+else
+    echo "Compilation failed."
+fi
