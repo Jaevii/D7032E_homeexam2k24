@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Determine path separator based on OS
 if [ "$(uname)" = "Linux" ] || [ "$(uname)" = "Darwin" ]; then
@@ -11,25 +11,19 @@ fi
 SRC_DIR="src"
 BUILD_DIR="build"
 LIB_DIR="lib"
-MAIN_CLASS="PointSalad"
+MAIN_CLASS="src.PointSalad"
 
 # Create the build directory if it doesn't exist
 mkdir -p "$BUILD_DIR"
 
 # Create a classpath string that includes all .jar files in the lib directory
-LIB_CP=$(find "$LIB_DIR" -name "*.jar" | tr '\n' "$SEP")
+CLASSPATH=$(find "$LIB_DIR" -name "*.jar" | tr '\n' "$SEP")
 
 # Compile the Java source files
-echo "Compiling Java source files..."
-javac -cp "$LIB_CP" -d "$BUILD_DIR" "$SRC_DIR"/*.java
+javac -d "$BUILD_DIR" -sourcepath "$SRC_DIR" -cp "$CLASSPATH" $(find "$SRC_DIR" -name "*.java")
 
-# Check if the compilation was successful
-if [ $? -eq 0 ]; then
-    echo "Compilation successful."
+echo "\nCompilation finished. Classes are in the $BUILD_DIR directory. \n"
 
-    # Run the main class with the correct classpath
-    echo "Running $MAIN_CLASS..."
-    java -cp "$BUILD_DIR$SEP$LIB_CP" "$MAIN_CLASS"
-else
-    echo "Compilation failed."
-fi
+# Run the main class
+echo "Running "$MAIN_CLASS"... \n"
+java -cp "$BUILD_DIR$SEP$CLASSPATH" "$MAIN_CLASS"
