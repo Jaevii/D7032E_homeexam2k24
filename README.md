@@ -4,8 +4,11 @@ This is the home exam for the course [D7032E Software engineering](https://www.l
 
 ## How to run
 
-1. Compile the game with `javac -cp .:json.jar PointSalad.java`
+1. Download the repo files
 
-2. Run the server with `java -cp .:json.jar PointSalad` or with `java -cp .:json.jar PointSalad [#Players] [#Bots]` for specifying the number of players and bots. (First one will let you set number of players and bots in the beginning of the game)
+2. While inside the folder, run `chmod +x build.sh` in your terminal
 
-3. Connect an "online" client player with `java -cp .:json.jar PointSalad 127.0.0.1`
+3. Run `./build.sh` and choose the number of players/bots
+
+
+Connect an "online" client player with `java -cp .:json.jar PointSalad 127.0.0.1`
