@@ -2,7 +2,7 @@ package src.player;
 
 import java.util.ArrayList;
 
-import src.cards.CardInterface;
+import src.card.CardInterface;
 
 public interface PlayerInterface {
     

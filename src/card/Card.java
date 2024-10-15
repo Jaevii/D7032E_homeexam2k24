@@ -1,6 +1,6 @@
-package src.cards;
+package src.card;
 
-public abstract class Card implements CardInterface {
+public class Card implements CardInterface {
 
     private String criteria;
     private CardType type;
@@ -13,37 +13,21 @@ public abstract class Card implements CardInterface {
 
     @Override
     public String getCriteria() {
-        // TODO Auto-generated method stub
         return this.criteria;
     }
 
     @Override
     public CardType getType() {
-        // TODO Auto-generated method stub
         return this.type;
     }
 
     @Override
-    public void setCriteria(String criteria) {
-        // TODO Auto-generated method stub
-        this.criteria = criteria;
-    }
-
-    @Override
-    public void setType(CardType type) {
-        // TODO Auto-generated method stub
-        this.type = type;
-    }
-
-    @Override
     public boolean criteriaSideUp() {
-        // TODO Auto-generated method stub
         return this.criteriaSideUp;
     }
 
     @Override
     public void flipCard() {
-        // TODO Auto-generated method stub
         this.criteriaSideUp = !this.criteriaSideUp;
     }
     

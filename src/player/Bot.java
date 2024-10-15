@@ -3,7 +3,7 @@ package src.player;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import src.cards.CardInterface;
+import src.card.CardInterface;
 
 public class Bot implements PlayerInterface {
     

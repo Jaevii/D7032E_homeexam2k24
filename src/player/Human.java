@@ -6,7 +6,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import src.cards.CardInterface;
+import src.card.CardInterface;
 
 public class Human implements PlayerInterface {
 
