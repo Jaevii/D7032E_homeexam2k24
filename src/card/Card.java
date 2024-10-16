@@ -1,34 +1,40 @@
 package src.card;
 
-public class Card implements CardInterface {
+public abstract class Card implements CardInterface {
 
-    private String criteria;
-    private CardType type;
-    private boolean criteriaSideUp = true;
+    private String frontside;
+    private CardType backside;
+    private boolean frontsideSideUp;
 
-    public Card(String criteria, CardType type) {
-        this.criteria = criteria;
-        this.type = type;
+    public Card(String frontside, CardType backside) {
+        this.frontside = frontside;
+        this.backside = backside;
+        this.frontsideSideUp = true;
     }
 
     @Override
-    public String getCriteria() {
-        return this.criteria;
+    public String getFrontside() {
+        return this.frontside;
     }
 
     @Override
-    public CardType getType() {
-        return this.type;
+    public CardType getBackside() {
+        return this.backside;
     }
 
     @Override
-    public boolean criteriaSideUp() {
-        return this.criteriaSideUp;
+    public boolean frontsideSideUp() {
+        return this.frontsideSideUp;
     }
 
     @Override
     public void flipCard() {
-        this.criteriaSideUp = !this.criteriaSideUp;
+        this.frontsideSideUp = !this.frontsideSideUp;
+    }
+
+    @Override
+    public String toString() {
+        return "Card: " + this.getFrontside();
     }
     
 }

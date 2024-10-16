@@ -2,10 +2,10 @@ package src.card;
 
 public interface CardInterface {
 
-    public String getCriteria();
-    public CardType getType();
+    public String getFrontside();
+    public CardType getBackside();
 
-    boolean criteriaSideUp();
+    boolean frontsideSideUp();
     public void flipCard();
 
     String toString();
