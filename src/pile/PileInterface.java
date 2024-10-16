@@ -5,8 +5,6 @@ import src.card.CardInterface;
 
 public interface PileInterface {
 
-    public void shuffle();
-
     public CardInterface drawTopCard();
     public CardInterface drawBottomCard();
 

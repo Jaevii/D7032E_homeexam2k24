@@ -1,8 +1,6 @@
 package src.pile;
 
 import java.util.ArrayList;
-import java.util.Collections;
-
 import src.card.CardInterface;
 
 public class Pile implements PileInterface {
@@ -11,11 +9,6 @@ public class Pile implements PileInterface {
 
     public Pile(ArrayList<CardInterface> cards) {
         this.cards = cards;
-    }
-
-    @Override
-    public void shuffle() {
-        Collections.shuffle(this.cards);
     }
 
     @Override
