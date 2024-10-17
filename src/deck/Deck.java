@@ -80,7 +80,7 @@ public class Deck implements DeckInterface {
         shuffle(deckOnion);
         shuffle(deckTomato);
 
-        int cardsPerVeggie = numberOfPlayers / 2 * 6;
+        int cardsPerVeggie = 3 * numberOfPlayers;
 
         ArrayList<CardInterface> deck = new ArrayList<>();
         for (int i = 0; i < cardsPerVeggie; i++) {
