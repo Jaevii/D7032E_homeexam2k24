@@ -7,10 +7,8 @@ import src.pile.PileInterface;
 
 public interface DeckInterface {
 
-    void shuffle();
+    ArrayList<PileInterface> createPiles(int numberOfPlayers);
 
-    void createDeck(int numberOfPlayers);
-
-    ArrayList<PileInterface> createPiles();
+    void shuffle(ArrayList<CardInterface> deck);
     
 }
