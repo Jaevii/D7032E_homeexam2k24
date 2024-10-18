@@ -2,11 +2,11 @@ package src.card;
 
 public interface CardInterface {
 
-    public String getFrontside();
-    public CardType getBackside();
+    String getFrontside();
+    CardType getBackside();
 
     boolean frontsideSideUp();
-    public void flipCard();
+    void flipCard();
 
     String toString();
 }

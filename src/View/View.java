@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 import src.card.CardInterface;
 import src.card.CardType;
+import src.counter.Counter;
 import src.market.MarketInterface;
 import src.pile.PileInterface;
 import src.player.PlayerInterface;
-import src.service.Counter;
 
 public class View implements ViewInterface {
 
-    private static final String LINE_STRING = "\n-------------------------------------------------------------------------";
+    private static final String LINE_STRING = "\n-----------------------------------------------------------------";
 
     @Override
     public String displayHand(PlayerInterface player) {
