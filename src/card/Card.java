@@ -38,9 +38,9 @@ public abstract class Card implements CardInterface {
     public String toString() {
 
         if (this.frontsideSideUp) {
-            return "Card: " + this.getFrontside();
+            return this.getFrontside() + " (" + this.getBackside() + ")";
         } else {
-            return "Card: " + this.getBackside().toString();
+            return this.getBackside().toString();
         }
     }
     

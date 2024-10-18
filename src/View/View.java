@@ -11,7 +11,7 @@ import src.service.Counter;
 
 public class View implements ViewInterface {
 
-    private static final String LINE_STRING = "\n----------------------------------------------------------------------------------------------------------";
+    private static final String LINE_STRING = "\n-------------------------------------------------------------------------";
 
     @Override
     public String displayHand(PlayerInterface player) {
@@ -31,14 +31,12 @@ public class View implements ViewInterface {
         // Sum up the number of each vegetable and show the total number of each
         // vegetable
         for (CardType vegetable : CardType.values()) {
-            int count = c.countVegetables(hand, vegetable);
+            int count = c.countVegetable(hand, vegetable);
             if (count > 0) {
                 handString += vegetable + ": " + count + "\t";
             }
         }
         return handString;
-
-
     }
 
     @Override
@@ -68,27 +66,29 @@ public class View implements ViewInterface {
                 }
             } else {
                 if (i % 2 == 0) {
-                    upperString += card.toString() + "\t";
+                    upperString += card.toString() + "\t\t";
                 } else {
-                    lowerString += card.toString() + "\t";
+                    lowerString += card.toString() + "\t\t";
                 }
             }
 
             i++;
         }
 
-        marketString += upperString + "\n" + lowerString + "\n";
+        marketString += upperString + "\n" + lowerString + LINE_STRING;
 
         return marketString;
     }
 
     @Override
     public String printPiles(ArrayList<PileInterface> piles) {
-        String pilesString = "Piles: \n";
+        String pilesString = LINE_STRING + "\nPiles:" + LINE_STRING;
 
-        for (int i = 0; i < piles.size(); i++) {
-            pilesString += "Pile " + i + ": " + piles.get(i).toString() + "\n";
+        for (int i = 1; i < piles.size() + 1; i++) {
+            pilesString +="\n"+ i + ". [" + piles.get(i-1).getCard(0) + "]";
         }
+
+        pilesString += LINE_STRING;
 
         return pilesString;
     }
