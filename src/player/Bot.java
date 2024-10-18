@@ -51,6 +51,11 @@ public class Bot implements PlayerInterface {
     }
 
     @Override
+    public void addCard(CardInterface card) {
+        this.hand.add(card);
+    }
+
+    @Override
     public void sendMessage(Object message) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'sendMessage'");

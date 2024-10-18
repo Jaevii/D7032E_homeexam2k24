@@ -1,5 +1,5 @@
 package src.service;
 
-public class View {
+public class GameLoop {
     
 }

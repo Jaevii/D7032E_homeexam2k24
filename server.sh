@@ -10,7 +10,7 @@ fi
 # Variables for directories and files
 BUILD_DIR="build"
 LIB_DIR="lib"
-MAIN_CLASS="src.PointSalad"
+MAIN_CLASS="src.Game"
 CLASSPATH=$(find "$LIB_DIR" -name "*.jar" | tr '\n' "$SEP")
 
 # Run the main class

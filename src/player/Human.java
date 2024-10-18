@@ -27,7 +27,7 @@ public class Human implements PlayerInterface {
         this.inFromClient = inFromClient;
         this.outToClient = outToClient;
 
-        this.hand = new ArrayList<CardInterface>();
+        this.hand = new ArrayList<CardInterface>(0);
 
         if (connection == null)
             this.online = false;
@@ -38,32 +38,32 @@ public class Human implements PlayerInterface {
 
     @Override
     public int getPlayerID() {
-        // TODO Auto-generated method stub
         return this.playerID;
     }
 
     @Override
     public boolean isBot() {
-        // TODO Auto-generated method stub
         return false;
     }
 
     @Override
     public int getScore() {
-        // TODO Auto-generated method stub
         return this.score;
     }
 
     @Override
     public void setScore(int score) {
-        // TODO Auto-generated method stub
         this.score = score;
     }
 
     @Override
     public ArrayList<CardInterface> getHand() {
-        // TODO Auto-generated method stub
         return this.hand;
+    }
+
+    @Override
+    public void addCard(CardInterface card) {
+        this.hand.add(card);
     }
 
     @Override

@@ -37,6 +37,7 @@ public abstract class Market implements MarketInterface {
         return this.marketCards.get(index) == null;
     }
 
+    @Override
     public ArrayList<CardInterface> getCards() {
         return this.marketCards;
     }

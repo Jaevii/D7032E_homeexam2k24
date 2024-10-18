@@ -16,6 +16,7 @@ public interface PlayerInterface {
 
     // Player cards
     ArrayList<CardInterface> getHand();
+    void addCard(CardInterface card);
 
     // Player messaging
     void sendMessage(Object message);

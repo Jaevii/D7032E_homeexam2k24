@@ -1,7 +1,6 @@
 package src.market;
 
 import java.util.ArrayList;
-
 import src.pile.PileInterface;
 
 public class SaladMarket extends Market {
@@ -23,6 +22,33 @@ public class SaladMarket extends Market {
             int pileIndex = i / 2;
 
             this.addCard(piles.get(pileIndex).drawTopCard(), i);
+        }
+    }
+
+    // TODO: Add random decision if two biggest piles are equal
+    public int getBiggestPile (ArrayList<PileInterface> piles) {
+        int biggestPile = 0;
+
+        for (int i = 0; i < piles.size(); i++) {
+            if (piles.get(i).getSize() > piles.get(biggestPile).getSize()) {
+                biggestPile = i;
+            }
+        }
+
+        return biggestPile;
+    }
+
+    public void refillMarket(ArrayList<PileInterface> piles) {
+        for (int i = 0; i < MARKET_SIZE; i++) {
+            if (this.isSlotEmpty(i)) {
+                int pileIndex = i/2;
+                if (!piles.get(pileIndex).isEmpty()) {
+                    this.addCard(piles.get(pileIndex).drawTopCard(), i);
+                } else {
+                    pileIndex = getBiggestPile(piles);
+                    this.addCard(piles.get(pileIndex).drawBottomCard(), i);
+                }
+            }
         }
     }
 }

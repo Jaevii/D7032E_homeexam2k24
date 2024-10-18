@@ -11,7 +11,7 @@ fi
 SRC_DIR="src"
 BUILD_DIR="build"
 LIB_DIR="lib"
-MAIN_CLASS="src.PointSalad"
+MAIN_CLASS="src.Game"
 
 # Create the build directory if it doesn't exist
 mkdir -p "$BUILD_DIR"
