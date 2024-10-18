@@ -17,11 +17,11 @@ import src.card.SaladCard;
 import src.pile.Pile;
 import src.pile.PileInterface;
 
-public class Deck implements DeckInterface {
+public class SaladDeck implements DeckInterface {
 
     private static final int NUMBER_OF_PILES = 3;
 
-    public Deck() {}
+    public SaladDeck() {}
 
     @Override
     public void shuffle(ArrayList<CardInterface> deck) {

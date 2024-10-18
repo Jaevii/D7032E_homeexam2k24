@@ -29,12 +29,19 @@ public abstract class Card implements CardInterface {
 
     @Override
     public void flipCard() {
-        this.frontsideSideUp = !this.frontsideSideUp;
+        if (this.frontsideSideUp) {
+            this.frontsideSideUp = !this.frontsideSideUp;
+        }
     }
 
     @Override
     public String toString() {
-        return "Card: " + this.getFrontside();
+
+        if (this.frontsideSideUp) {
+            return "Card: " + this.getFrontside();
+        } else {
+            return "Card: " + this.getBackside().toString();
+        }
     }
     
 }
