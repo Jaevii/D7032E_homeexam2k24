@@ -760,6 +760,5 @@ public class PointSalad {
 
     public static void main(String[] args) {
         PointSalad game = new PointSalad(args);
-
     }
 }

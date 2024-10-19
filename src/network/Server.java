@@ -45,6 +45,7 @@ public class Server {
             players.add(new Human(i, connectionSocket, inFromClient, outToClient)); // add an online client
             System.out.println("Connected to player " + i);
             outToClient.writeObject("You connected to the server as player " + i + "\n");
+            sendToAllPlayers(this.players.toString());
         }
     }
 }

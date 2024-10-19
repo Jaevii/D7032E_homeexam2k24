@@ -12,7 +12,9 @@ public class Client {
         Socket aSocket = new Socket(ipAddress, 2048);
         ObjectOutputStream outToServer = new ObjectOutputStream(aSocket.getOutputStream());
         ObjectInputStream inFromServer = new ObjectInputStream(aSocket.getInputStream());
+        
         String nextMessage = "";
+        
         while (!nextMessage.contains("winner")) {
             nextMessage = (String) inFromServer.readObject();
             System.out.println(nextMessage);

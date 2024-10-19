@@ -1,16 +1,19 @@
 package src.game;
 
-import src.player.PlayerInterface;
+import src.View.View;
+import src.View.ViewInterface;
 
-public class GameLoop {
+public class GameLoop implements GameLoopInterface {
 
-    GameSetup setup;
+    GameState gameState;
+    ViewInterface view;
 
-    public GameLoop(GameSetup setup) {
-        this.setup = setup;
+    public GameLoop(GameState gameState) {
+        this.gameState = gameState;
+        this.view = new View();
     }
  
-    public void gameLoop() {
+    public void startGameLoop() {
 
         boolean keepPlaying = true;
 
@@ -25,5 +28,6 @@ public class GameLoop {
         }
 
         // Display the winner
+
     }
 }
