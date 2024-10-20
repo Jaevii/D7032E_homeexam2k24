@@ -10,9 +10,9 @@ fi
 # Variables for directories and files
 BUILD_DIR="build"
 LIB_DIR="lib"
-MAIN_CLASS="src.Game"
+MAIN_CLASS="src.PointSalad"
 CLASSPATH=$(find "$LIB_DIR" -name "*.jar" | tr '\n' "$SEP")
 
 # Run the main class
 echo "Running server for $MAIN_CLASS..."
-java -cp "$BUILD_DIR$SEP$CLASSPATH" "$MAIN_CLASS"
+java -cp "$BUILD_DIR$SEP$CLASSPATH" "$MAIN_CLASS" [1] [0]

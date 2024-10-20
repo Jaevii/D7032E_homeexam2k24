@@ -10,11 +10,12 @@ public class Client {
     public Client(String ipAddress) throws Exception {
         // Connect to server
         Socket aSocket = new Socket(ipAddress, 2048);
+        
         ObjectOutputStream outToServer = new ObjectOutputStream(aSocket.getOutputStream());
         ObjectInputStream inFromServer = new ObjectInputStream(aSocket.getInputStream());
-        
+
         String nextMessage = "";
-        
+
         while (!nextMessage.contains("winner")) {
             nextMessage = (String) inFromServer.readObject();
             System.out.println(nextMessage);
@@ -23,5 +24,7 @@ public class Client {
                 outToServer.writeObject(in.nextLine());
             }
         }
-    }   
+        
+        aSocket.close();
+    }
 }

@@ -22,8 +22,10 @@ public class Human implements PlayerInterface {
     private int score = 0;
 
     public Human(int playerID, Socket connection, ObjectInputStream inFromClient, ObjectOutputStream outToClient) {
+        
         this.playerID = playerID;
         this.connection = connection;
+        
         this.inFromClient = inFromClient;
         this.outToClient = outToClient;
 

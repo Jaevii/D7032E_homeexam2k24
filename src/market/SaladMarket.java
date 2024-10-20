@@ -38,6 +38,7 @@ public class SaladMarket extends Market {
         return biggestPile;
     }
 
+    @Override
     public void refillMarket(ArrayList<PileInterface> piles) {
         for (int i = 0; i < MARKET_SIZE; i++) {
             if (this.isSlotEmpty(i)) {

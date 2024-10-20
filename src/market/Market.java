@@ -2,6 +2,7 @@ package src.market;
 
 import java.util.ArrayList;
 import src.card.CardInterface;
+import src.pile.PileInterface;
 
 public abstract class Market implements MarketInterface {
 
@@ -41,4 +42,7 @@ public abstract class Market implements MarketInterface {
     public ArrayList<CardInterface> getCards() {
         return this.marketCards;
     }
+
+    @Override
+    public abstract void refillMarket(ArrayList<PileInterface> piles);
 }
