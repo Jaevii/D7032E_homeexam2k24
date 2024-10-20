@@ -7,8 +7,7 @@ public class BotLogic implements PlayerLogicInterface {
 
     @Override
     public void playTurn(PlayerInterface currentPlayer, GameStateInterface gameState) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'turn'");
+        System.out.println("Bot turn");
     }
     
 }

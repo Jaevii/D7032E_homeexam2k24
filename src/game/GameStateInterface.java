@@ -8,6 +8,16 @@ import src.player.PlayerInterface;
 
 public interface GameStateInterface {
 
-    public void updateGameState(int currentPlayerID, ArrayList<PileInterface> piles, MarketInterface market, ArrayList<PlayerInterface> players);
+    void updateGameState(int currentPlayerID, ArrayList<PileInterface> piles, MarketInterface market, ArrayList<PlayerInterface> players);
+
+    int getCurrentPlayerID();
+
+    ArrayList<PileInterface> getPiles();
+
+    MarketInterface getMarket();
+
+    ArrayList<PlayerInterface> getPlayers();
+
+    void setCurrentPlayerID(int currentPlayerID);
     
 }

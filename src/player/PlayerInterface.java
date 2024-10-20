@@ -9,6 +9,7 @@ public interface PlayerInterface {
     // Player identity
     int getPlayerID();
     boolean isBot();
+    boolean isOnline();
 
     // Player score
     int getScore();
@@ -18,7 +19,7 @@ public interface PlayerInterface {
     ArrayList<CardInterface> getHand();
     void addCard(CardInterface card);
 
-    // Player messaging
+    // Communication
     void sendMessage(Object message);
-    String readMessage();
+    String receiveMessage();
 }

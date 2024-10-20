@@ -2,9 +2,6 @@ package src.game;
 
 import java.util.ArrayList;
 
-import java.net.ServerSocket;
-
-import src.View.View;
 import src.market.MarketInterface;
 import src.pile.PileInterface;
 import src.player.PlayerInterface;
