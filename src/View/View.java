@@ -42,7 +42,9 @@ public class View implements ViewInterface {
     @Override
     public void sendToAllPlayers(ArrayList<PlayerInterface> players, String message) {
         for (PlayerInterface player : players) {
-            player.sendMessage(message);
+            if (!player.isBot()) {
+                player.sendMessage(message);
+            }
         }
     }
 
@@ -91,6 +93,13 @@ public class View implements ViewInterface {
         pilesString += LINE_STRING;
 
         return pilesString;
+    }
+
+    @Override
+    public void printGameState(ArrayList<PlayerInterface> players, ArrayList<PileInterface> piles,
+            MarketInterface market) {
+        sendToAllPlayers(players, printPiles(piles));
+        sendToAllPlayers(players, printMarket(market));
     }
     
 }

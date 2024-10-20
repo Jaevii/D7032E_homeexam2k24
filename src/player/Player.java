@@ -20,14 +20,14 @@ public abstract class Player implements PlayerInterface{
     private ObjectOutputStream outToClient;
     Scanner in = new Scanner(System.in);
 
-    public Player(int playerID, Socket connection, ObjectInputStream inFromClient, ObjectOutputStream outToClient) {
+    public Player(int playerID, Socket connection, ObjectInputStream inFromClient, ObjectOutputStream outToClient, boolean online) {
         this.playerID = playerID;
         this.connection = connection;
         this.inFromClient = inFromClient;
         this.outToClient = outToClient;
 
         this.hand = new ArrayList<CardInterface>();
-        this.online = true;
+        this.online = online;
         this.score = 0;
     }
 
@@ -65,11 +65,11 @@ public abstract class Player implements PlayerInterface{
     public void sendMessage(Object message) {
         if(online) {
             try {
-                outToClient.writeObject(message);
+                this.outToClient.writeObject(message);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else if(isBot()){
+        } else{
             System.out.println(message);                
         }
     }
@@ -78,13 +78,13 @@ public abstract class Player implements PlayerInterface{
     public String receiveMessage() {
         if(online) {
             try {
-                return (String) inFromClient.readObject();
+                return (String) this.inFromClient.readObject();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
             try {
-                return in.nextLine();
+                return this.in.nextLine();
             } catch(Exception e){
                 e.printStackTrace();
             }

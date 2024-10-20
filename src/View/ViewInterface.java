@@ -15,4 +15,6 @@ public interface ViewInterface {
     String printPiles(ArrayList<PileInterface> piles);
 
     String printMarket(MarketInterface market);
+
+    void printGameState(ArrayList<PlayerInterface> players, ArrayList<PileInterface> piles, MarketInterface market);
 }

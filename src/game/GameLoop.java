@@ -40,6 +40,7 @@ public class GameLoop implements GameLoopInterface {
             for (PileInterface pile : gameState.getPiles()) {
                 if (!pile.isEmpty()) {
                     cardsAvailable = true;
+                    break;
                 }
             }
 
@@ -47,6 +48,12 @@ public class GameLoop implements GameLoopInterface {
                 keepPlaying = false;
                 break;
             }
+
+            // Print the game state
+            view.printGameState(gameState.getPlayers(), gameState.getPiles(), gameState.getMarket());
+
+            boolean validChoice = false;
+            while(!validChoice) {}
 
             // Player's turn
             if (thisPlayer.isBot()) {

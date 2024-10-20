@@ -6,8 +6,8 @@ import java.net.Socket;
 
 public class Human extends Player {
 
-    public Human(int playerID, Socket connection, ObjectInputStream inFromClient, ObjectOutputStream outToClient) {
-        super(playerID, connection, inFromClient, outToClient);
+    public Human(int playerID, Socket connection, ObjectInputStream inFromClient, ObjectOutputStream outToClient, boolean online) {
+        super(playerID, connection, inFromClient, outToClient, online);
     }
 
     @Override
