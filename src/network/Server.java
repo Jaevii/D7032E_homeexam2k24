@@ -14,7 +14,7 @@ import java.net.Socket;
 public class Server {
 
     private ServerSocket aSocket;
-    private ArrayList<PlayerInterface> players;
+    private ArrayList<PlayerInterface> players = new ArrayList<PlayerInterface>();
 
     public Server(int numberPlayers, int numberOfBots) throws Exception {
 

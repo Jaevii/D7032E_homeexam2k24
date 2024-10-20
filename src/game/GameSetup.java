@@ -92,7 +92,9 @@ public class GameSetup implements GameSetupInterface {
 
         // Create the server
         try {
+            System.out.println("Creating server...");
             Server server = new Server(this.numberOfHumans, this.numberOfBots);
+            System.out.println("Server created.");
             this.players = server.getPlayers();
         } catch (Exception e) {
             e.printStackTrace();
