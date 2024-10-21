@@ -48,6 +48,7 @@ public class View implements ViewInterface {
         }
     }
 
+    //TODO: Add letters to indicate the columns, i.e [A], [B], [C], [D], [E], [F]
     @Override
     public String printMarket(MarketInterface market) {
         ArrayList<CardInterface> cards = market.getCards();

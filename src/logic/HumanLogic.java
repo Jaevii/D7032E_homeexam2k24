@@ -28,6 +28,7 @@ public class HumanLogic implements PlayerLogicInterface {
             thisPlayer.sendMessage("Take either one point card (1-3) or up to two veggie cards (A-F).\n");
 
             //TODO: Fix the logic for text input
+            //TODO: Add error handling for invalid input
             String pileChoice = thisPlayer.receiveMessage();
             if (pileChoice.matches("\\d")) {
                 int pileIndex = Integer.parseInt(pileChoice) - 1;
