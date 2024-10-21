@@ -2,8 +2,6 @@ package src.view;
 
 import java.util.ArrayList;
 
-import org.json.JSONPropertyIgnore;
-
 import src.card.CardInterface;
 import src.card.CardType;
 import src.counter.Counter;

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import src.logic.*;
 import src.pile.PileInterface;
-import src.player.Player;
 import src.player.PlayerInterface;
 import src.score.ScoreCalc;
 import src.view.*;

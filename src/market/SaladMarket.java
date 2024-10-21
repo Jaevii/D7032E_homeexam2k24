@@ -25,12 +25,17 @@ public class SaladMarket extends Market {
         }
     }
 
-    // TODO: Add random decision if two biggest piles are equal
     public int getBiggestPile (ArrayList<PileInterface> piles) {
         int biggestPile = 0;
 
         for (int i = 0; i < piles.size(); i++) {
-            if (piles.get(i).getSize() > piles.get(biggestPile).getSize()) {
+            if (piles.get(i).getSize() == piles.get(biggestPile).getSize()) {
+                if (Math.random() < 0.5) {
+                    biggestPile = i;
+                }
+                
+            }
+            else if (piles.get(i).getSize() > piles.get(biggestPile).getSize()) {
                 biggestPile = i;
             }
         }
@@ -38,7 +43,6 @@ public class SaladMarket extends Market {
         return biggestPile;
     }
 
-     // TODO: Add case where all piles are empty
     @Override
     public void refillMarket(ArrayList<PileInterface> piles) {
         for (int i = 0; i < MARKET_SIZE; i++) {
@@ -48,7 +52,9 @@ public class SaladMarket extends Market {
                     this.addCard(piles.get(pileIndex).drawTopCard(), i);
                 } else {
                     pileIndex = getBiggestPile(piles);
-                    this.addCard(piles.get(pileIndex).drawBottomCard(), i);
+                    if (!piles.get(pileIndex).isEmpty()){
+                        this.addCard(piles.get(pileIndex).drawBottomCard(), i);
+                    }
                 }
             }
         }
