@@ -25,9 +25,8 @@ public class HumanLogic implements PlayerLogicInterface {
         boolean validChoice = false;
         while (!validChoice) {
 
-            thisPlayer.sendMessage("Take either one point card (1-3) or up to two veggie cards (A-F).\n");
+            thisPlayer.sendMessage("Take either one point card (1-3) or up to two veggie cards (A-F), for example: AF.\n");
 
-            //TODO: Fix the logic for text input
             //TODO: Add error handling for invalid input
             String pileChoice = thisPlayer.receiveMessage();
             if (pileChoice.matches("\\d")) {
@@ -43,17 +42,23 @@ public class HumanLogic implements PlayerLogicInterface {
                 }
             } else {
                 int takenVeggies = 0;
+
                 for (int charIndex = 0; charIndex < pileChoice.length(); charIndex++) {
-                    if (Character.toUpperCase(pileChoice.charAt(charIndex)) < 'A'
-                            || Character.toUpperCase(pileChoice.charAt(charIndex)) > 'F') {
-                        thisPlayer.sendMessage(
-                                "\nInvalid choice. Please choose up to two veggie cards from the market.\n");
+
+                    char inputChar = Character.toUpperCase(pileChoice.charAt(charIndex));
+
+                    if (inputChar < 'A' || inputChar > 'F') {
+                        if (takenVeggies == 1) {
+                            thisPlayer.sendMessage("\nInvalid choice. Please choose another veggie card from the market.\n");
+                        } else {
+                            thisPlayer.sendMessage("\nInvalid choice. Please choose up to two veggie cards from the market.\n");
+                        }
                         validChoice = false;
                         break;
                     }
-                    int choice = Character.toUpperCase(pileChoice.charAt(charIndex)) - 'A';
-                    int veggieIndex = (choice == 0 || choice == 1 || choice == 2) ? 0
-                            : (choice == 3 || choice == 4 || choice == 5) ? 1 : -1;
+
+                    int veggieIndex = inputChar - 'A';
+
                     if (market.getCards().get(veggieIndex) == null) {
                         thisPlayer.sendMessage("\nThis veggie is empty. Please choose another pile.\n");
                         validChoice = false;

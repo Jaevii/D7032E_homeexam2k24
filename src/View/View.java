@@ -2,6 +2,8 @@ package src.view;
 
 import java.util.ArrayList;
 
+import org.json.JSONPropertyIgnore;
+
 import src.card.CardInterface;
 import src.card.CardType;
 import src.counter.Counter;
@@ -48,7 +50,6 @@ public class View implements ViewInterface {
         }
     }
 
-    //TODO: Add letters to indicate the columns, i.e [A], [B], [C], [D], [E], [F]
     @Override
     public String printMarket(MarketInterface market) {
         ArrayList<CardInterface> cards = market.getCards();
@@ -58,27 +59,35 @@ public class View implements ViewInterface {
         int i = 0;
         String upperString = "";
         String lowerString = "";
+        char marketIndex = 'A';
+        String upperChars = "";
+        String lowerChars = "";
 
         for (CardInterface card : cards) {
 
             if (card == null) {
                 if (i % 2 == 0) {
                     upperString += "Empty Slot\t";
+                    upperChars += " [" + marketIndex + "]\t\t";
                 } else {
                     lowerString += "Empty Slot\t";
+                    lowerChars += " [" + marketIndex + "]\t\t";
                 }
             } else {
                 if (i % 2 == 0) {
                     upperString += card.toString() + "\t\t";
+                    upperChars += " [" + marketIndex + "]\t\t";
                 } else {
                     lowerString += card.toString() + "\t\t";
+                    lowerChars += " [" + marketIndex + "]\t\t";
                 }
             }
 
             i++;
+            marketIndex++;
         }
 
-        marketString += upperString + "\n" + lowerString + LINE_STRING;
+        marketString += upperString + "\n" + upperChars + "\n\n" + lowerString + "\n" + lowerChars + LINE_STRING;
 
         return marketString;
     }
@@ -102,5 +111,4 @@ public class View implements ViewInterface {
         sendToAllPlayers(players, printPiles(piles));
         sendToAllPlayers(players, printMarket(market));
     }
-    
 }
