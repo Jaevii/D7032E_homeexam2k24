@@ -743,12 +743,14 @@ public class PointSalad {
 
         int maxScore = 0;
         int playerID = 0;
+        
         for (Player player : players) {
             if (player.score > maxScore) {
                 maxScore = player.score;
                 playerID = player.playerID;
             }
         }
+
         for (Player player : players) {
             if (player.playerID == playerID) {
                 player.sendMessage("\nCongratulations! You are the winner with a score of " + maxScore);

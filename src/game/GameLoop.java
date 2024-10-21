@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import src.logic.*;
 import src.pile.PileInterface;
+import src.player.Player;
 import src.player.PlayerInterface;
+import src.score.ScoreCalc;
 import src.view.*;
 
 public class GameLoop implements GameLoopInterface {
@@ -12,6 +14,7 @@ public class GameLoop implements GameLoopInterface {
     private GameState gameState;
 
     private ViewInterface view;
+    private ScoreCalc scoreCalc;
 
     private PlayerLogicInterface HumanLogic;
     private PlayerLogicInterface BotLogic;
@@ -22,6 +25,8 @@ public class GameLoop implements GameLoopInterface {
         this.gameState = gameState;
 
         this.view = new View();
+        this.scoreCalc = new ScoreCalc();
+
         this.HumanLogic = new HumanLogic();
         this.BotLogic = new BotLogic();
     }
@@ -89,7 +94,51 @@ public class GameLoop implements GameLoopInterface {
             }
         }
 
-        // Display the winner
+        // Clear the screen
+        view.sendToAllPlayers(players, "\033[H\033[2J");
+
+        // Score calculation
+        view.sendToAllPlayers(players, "\n-------------------------------------- CALCULATING SCORES --------------------------------------\n");
+        for (PlayerInterface player : players) {
+            player.setScore(scoreCalc.calculateScore(player.getHand(), player, players));
+        }
+
+        // Find the winner
+        int maxScore = 0;
+        int winnerID = 0;
+        for (PlayerInterface player : players) {
+            if (player.getScore() > maxScore) {
+                maxScore = player.getScore();
+                winnerID = player.getPlayerID();
+            }
+        }
+
+        // Announce the winner
+        for (PlayerInterface player : players) {
+            if (player.getPlayerID() == winnerID) {
+                player.sendMessage("\nCongratulations! You are the winner with a score of " + maxScore);
+            } else {
+                if(players.get(winnerID).isBot()) {
+                    player.sendMessage("\nThe winner is Bot " + winnerID + " with a score of " + maxScore);
+                } else {
+                player.sendMessage("\nThe winner is Player " + winnerID + " with a score of " + maxScore);
+                }
+            }
+        }
+
+        // Wait for exit
+        boolean exit = false;
+        while (!exit) {
+            
+            players.get(0).sendMessage("\nPress 'q' to exit the game.");
+
+            String input = players.get(0).receiveMessage();
+
+            if (input.equals("q")) {
+                exit = true;
+            }
+
+        }
 
     }
 }

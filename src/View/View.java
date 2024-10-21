@@ -98,7 +98,11 @@ public class View implements ViewInterface {
         String pilesString = LINE_STRING + "\nPiles:" + LINE_STRING;
 
         for (int i = 1; i < piles.size() + 1; i++) {
-            pilesString +="\n"+ i + ". [" + piles.get(i-1).getCard(0) + "]";
+            pilesString +="\n"+ i + ". [" + piles.get(i-1).getCard(0) + "]\nCards left: " + piles.get(i-1).getSize();
+
+            if (i-1 < 2) {
+                pilesString += "\n";
+            }
         }
 
         pilesString += LINE_STRING;

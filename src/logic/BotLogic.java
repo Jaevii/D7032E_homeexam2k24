@@ -41,7 +41,7 @@ public class BotLogic implements PlayerLogicInterface {
                             tempHand.add(handCard);
                         }
                         tempHand.add(piles.get(i).getCard(0));
-                        int score = scoreCalc.calculateScore(tempHand, thisPlayer);
+                        int score = scoreCalc.calculateScore(tempHand, thisPlayer, gameState.getPlayers());
                         if (score > highestPointCardScore) {
                             highestPointCardScore = score;
                             highestPointCardIndex = i;
@@ -76,7 +76,7 @@ public class BotLogic implements PlayerLogicInterface {
                             tempHand.add(handCard);
                         }
                         tempHand.add(piles.get(i).getCard(0));
-                        int score = scoreCalc.calculateScore(tempHand, thisPlayer);
+                        int score = scoreCalc.calculateScore(tempHand, thisPlayer, gameState.getPlayers());
                         if (score > highestPointCardScore) {
                             highestPointCardScore = score;
                             highestPointCardIndex = i;
