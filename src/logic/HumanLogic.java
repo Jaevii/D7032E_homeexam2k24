@@ -25,13 +25,16 @@ public class HumanLogic implements PlayerLogicInterface {
         boolean validChoice = false;
         while (!validChoice) {
 
-            thisPlayer.sendMessage("Take either one point card (1-3) or up to two veggie cards (A-F), for example: AF.\n");
+            thisPlayer.sendMessage("Take either one point card (1-3) or up to two veggie cards (A-F), i.e: AF.\n");
 
-            //TODO: Add error handling for invalid input
             String pileChoice = thisPlayer.receiveMessage();
             if (pileChoice.matches("\\d")) {
                 int pileIndex = Integer.parseInt(pileChoice) - 1;
-                if (piles.get(pileIndex).getCard(0) == null) {
+
+                if (pileIndex < 0 || pileIndex > 2) {
+                    thisPlayer.sendMessage("\nInvalid choice. Please choose a pile between 1 and 3.\n");
+                    continue;
+                } else if (piles.get(pileIndex).getCard(0) == null) {
                     thisPlayer.sendMessage("\nThis pile is empty. Please choose another pile.\n");
                     continue;
                 } else {
@@ -91,10 +94,10 @@ public class HumanLogic implements PlayerLogicInterface {
         if (criteriaCardInHand) {
             // Give the player an option to turn a criteria card into a veggie card
             thisPlayer.sendMessage("\n" + view.displayHand(thisPlayer)
-                    + "\nWould you like to turn a criteria card into a veggie card? (Syntax example: n or 2)");
+                    + "\nWould you like to turn a criteria card into a veggie card? (Syntax example: n (no) or 1, 2, 3...)");
             String choice = thisPlayer.receiveMessage();
             if (choice.matches("\\d")) {
-                int cardIndex = Integer.parseInt(choice);
+                int cardIndex = Integer.parseInt(choice) - 1;
                 thisPlayer.getHand().get(cardIndex).flipCard();
             }
         }
