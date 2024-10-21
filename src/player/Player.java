@@ -69,7 +69,7 @@ public abstract class Player implements PlayerInterface{
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else{
+        } else if(!isBot()){
             System.out.println(message);                
         }
     }

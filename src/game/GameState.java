@@ -29,14 +29,6 @@ public class GameState implements GameStateInterface {
         this.players = players;
     }
 
-    // Called by the game loop after every game action
-    public void updateGameState(int currentPlayerID, ArrayList<PileInterface> piles, MarketInterface market, ArrayList<PlayerInterface> players) {
-        this.currentPlayerID = currentPlayerID;
-        this.piles = piles;
-        this.market = market;
-        this.players = players;
-    }
-
     // Getters
     public int getCurrentPlayerID() {
         return currentPlayerID;
@@ -57,5 +49,13 @@ public class GameState implements GameStateInterface {
     // Setters
     public void setCurrentPlayerID(int currentPlayerID) {
         this.currentPlayerID = currentPlayerID;
+    }
+
+    public void setPiles(ArrayList<PileInterface> piles) {
+        this.piles = piles;
+    }
+
+    public void setMarket(MarketInterface market) {
+        this.market = market;
     }
 }

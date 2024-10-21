@@ -7,10 +7,8 @@ import src.player.PlayerInterface;
 
 public class ScoreCalc {
 
-    public int calculateScore(PlayerInterface player) {
+    public int calculateScore(ArrayList<CardInterface> hand, PlayerInterface player) {
         int totalScore = 0;
-
-        ArrayList<CardInterface> hand = player.getHand();
 
         return totalScore;
     }

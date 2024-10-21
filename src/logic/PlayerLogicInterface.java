@@ -5,5 +5,5 @@ import src.player.PlayerInterface;
 
 public interface PlayerLogicInterface {
     
-    void playTurn(PlayerInterface currentPlayer, GameStateInterface gameState);
+    void playTurn(PlayerInterface thisPlayer, GameStateInterface gameState);
 }

@@ -49,6 +49,11 @@ public class Pile implements PileInterface {
 
     @Override
     public CardInterface getCard(int index) {
-        return this.cards.get(index);
+
+        if (isEmpty()) {
+            return null;
+        } else {
+            return this.cards.get(index);
+        }
     }
 }
