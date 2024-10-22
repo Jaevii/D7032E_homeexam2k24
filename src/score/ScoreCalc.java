@@ -16,7 +16,7 @@ public class ScoreCalc {
         int totalScore = 0;
 
         for (CardInterface criteriaCard : hand) {
-            if (criteriaCard.frontsideSideUp()) {
+            if (criteriaCard.frontsideUp()) {
                 String criteria = criteriaCard.getFrontside();
                 String[] parts = criteria.split(",");
 

@@ -24,13 +24,15 @@ public class Server {
             players.add(new Bot(i + 1, null, null, null)); // add a bot
         }
 
-        try {
-            aSocket = new ServerSocket(2048);
-            System.out.println("Created socket: " + aSocket);
-        } catch (Exception e) {
-            System.out.println("Port 2048 is already in use. Please close the other instance of the server and try again.");
-            if (aSocket != null && !aSocket.isClosed()) {
-                aSocket.close();
+        if (numberPlayers > 1) {
+            try {
+                aSocket = new ServerSocket(2048);
+                System.out.println("Created socket: " + aSocket);
+            } catch (Exception e) {
+                System.out.println("Port 2048 is already in use. Please close the other instance of the server and try again.");
+                if (aSocket != null && !aSocket.isClosed()) {
+                    aSocket.close();
+                }
             }
         }
 

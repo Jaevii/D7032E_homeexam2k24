@@ -16,15 +16,6 @@ public class SaladMarket extends Market {
         super(MARKET_SIZE);
     }
 
-    public void initMarket(ArrayList<PileInterface> piles) {
-        for (int i = 0; i < MARKET_SIZE; i++) {
-
-            int pileIndex = i / 2;
-
-            this.addCard(piles.get(pileIndex).drawTopCard(), i);
-        }
-    }
-
     public int getBiggestPile (ArrayList<PileInterface> piles) {
         int biggestPile = 0;
 

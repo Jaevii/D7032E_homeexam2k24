@@ -5,7 +5,7 @@ public interface CardInterface {
     String getFrontside();
     CardType getBackside();
 
-    boolean frontsideSideUp();
+    boolean frontsideUp();
     void flipCard();
 
     String toString();

@@ -4,12 +4,12 @@ public abstract class Card implements CardInterface {
 
     private String frontside;
     private CardType backside;
-    private boolean frontsideSideUp;
+    private boolean frontsideUp;
 
     public Card(String frontside, CardType backside) {
         this.frontside = frontside;
         this.backside = backside;
-        this.frontsideSideUp = true;
+        this.frontsideUp = true;
     }
 
     @Override
@@ -23,21 +23,21 @@ public abstract class Card implements CardInterface {
     }
 
     @Override
-    public boolean frontsideSideUp() {
-        return this.frontsideSideUp;
+    public boolean frontsideUp() {
+        return this.frontsideUp;
     }
 
     @Override
     public void flipCard() {
-        if (this.frontsideSideUp) {
-            this.frontsideSideUp = !this.frontsideSideUp;
+        if (this.frontsideUp) {
+            this.frontsideUp = !this.frontsideUp;
         }
     }
 
     @Override
     public String toString() {
 
-        if (this.frontsideSideUp) {
+        if (this.frontsideUp) {
             return this.getFrontside() + " (" + this.getBackside() + ")";
         } else {
             return this.getBackside().toString();

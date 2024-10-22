@@ -86,7 +86,7 @@ public class HumanLogic implements PlayerLogicInterface {
         // Check if the player has any criteria cards in their hand
         boolean criteriaCardInHand = false;
         for (CardInterface card : thisPlayer.getHand()) {
-            if (card.frontsideSideUp()) {
+            if (card.frontsideUp()) {
                 criteriaCardInHand = true;
                 break;
             }

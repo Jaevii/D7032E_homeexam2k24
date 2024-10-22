@@ -67,7 +67,7 @@ public class GameSetup implements GameSetupInterface {
         this.piles = deck.createPiles(this.numberOfHumans + this.numberOfBots);
 
         // Initialize the market
-        this.market.initMarket(this.piles);
+        this.market.refillMarket(this.piles);
  
         // Randomly select the starting player
         this.currentPlayerID = (int) (Math.random() * (this.numberOfHumans + this.numberOfBots));

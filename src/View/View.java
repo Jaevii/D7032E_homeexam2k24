@@ -21,7 +21,7 @@ public class View implements ViewInterface {
 
         String handString = "Criteria:\t";
         for (int i = 0; i < hand.size(); i++) {
-            if (hand.get(i).frontsideSideUp() && hand.get(i).getBackside() != null) {
+            if (hand.get(i).frontsideUp() && hand.get(i).getBackside() != null) {
                 int index = i + 1;
                 handString += "[" + index + "] " + hand.get(i).getFrontside() + " (" + hand.get(i).getBackside().toString() + ")"
                         + "\t";

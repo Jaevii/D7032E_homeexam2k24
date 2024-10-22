@@ -12,6 +12,5 @@ public interface MarketInterface {
     CardInterface takeCard(int index);
     ArrayList<CardInterface> getCards();
 
-    void initMarket(ArrayList<PileInterface> piles);
     void refillMarket(ArrayList<PileInterface> piles);
 }

@@ -11,12 +11,15 @@ import src.card.CardInterface;
 
 public class BotLogic implements PlayerLogicInterface {
 
+    private ArrayList<PileInterface> piles;
+    private MarketInterface market;
+    private ScoreCalc scoreCalc = new ScoreCalc();
+
     @Override
     public void playTurn(PlayerInterface thisPlayer, GameStateInterface gameState) {
 
-        ArrayList<PileInterface> piles = gameState.getPiles();
-        MarketInterface market = gameState.getMarket();
-        ScoreCalc scoreCalc = new ScoreCalc();
+        piles = gameState.getPiles();
+        market = gameState.getMarket();
 
         // Bot logic
         // The Bot will randomly decide to take either one point card or two veggie
