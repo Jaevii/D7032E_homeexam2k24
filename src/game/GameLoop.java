@@ -2,8 +2,8 @@ package src.game;
 
 import java.util.ArrayList;
 
+import src.card.CardInterface;
 import src.logic.*;
-import src.pile.PileInterface;
 import src.player.PlayerInterface;
 import src.score.SaladScoreCalc;
 import src.score.ScoreCalcInterface;
@@ -79,9 +79,8 @@ public class GameLoop implements GameLoopInterface {
 
             // Check if the game is over
             cardsAvailable = false;
-
-            for (PileInterface pile : gameState.getPiles()) {
-                if (!pile.isEmpty()) {
+            for (CardInterface card : gameState.getMarket().getCards()) {
+                if (card != null) {
                     cardsAvailable = true;
                     break;
                 }
@@ -89,7 +88,7 @@ public class GameLoop implements GameLoopInterface {
 
             if (!cardsAvailable) {
                 keepPlaying = false;
-                view.sendToAllPlayers(players, "All piles are empty. The game has ended!");
+                view.sendToAllPlayers(players, "All piles and the market are empty. The game has ended!");
                 break;
             }
         }
@@ -113,6 +112,8 @@ public class GameLoop implements GameLoopInterface {
             }
         }
 
+        gameState.setWinnerID(winnerID);
+
         // Announce the winner
         for (PlayerInterface player : players) {
             if (player.getPlayerID() == winnerID) {
@@ -126,16 +127,24 @@ public class GameLoop implements GameLoopInterface {
             }
         }
 
+
+        boolean onlyBots = true;
+
+        for (PlayerInterface player : players) {
+            if (!player.isBot()) {
+                onlyBots = false;
+            }
+        }
+
         // Wait for exit
-        boolean exit = false;
-        while (!exit) {
+        while (!onlyBots) {
             
             players.get(0).sendMessage("\nPress 'q' to exit the game.");
 
             String input = players.get(0).receiveMessage();
 
             if (input.equals("q")) {
-                exit = true;
+                onlyBots = true;
             }
 
         }

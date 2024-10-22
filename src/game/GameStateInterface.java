@@ -16,10 +16,14 @@ public interface GameStateInterface {
 
     ArrayList<PlayerInterface> getPlayers();
 
+    int getWinnerID();
+
     void setCurrentPlayerID(int currentPlayerID);
 
     void setPiles(ArrayList<PileInterface> piles);
 
     void setMarket(MarketInterface market);
+
+    void setWinnerID(int winnerID);
     
 }

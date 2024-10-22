@@ -32,5 +32,11 @@ else
     echo "Compilation failed."
 fi
 
+printf '\033[1J'
 echo "Running tests..."
-java -cp "$LIB_DIR/junit-platform-console-standalone-1.11.3.jar${SEP}$BUILD_DIR$SEP$CLASSPATH" org.junit.platform.console.ConsoleLauncher -c Testing.InitGameStateTest
+#echo "GameStateTest"
+#java -cp "$LIB_DIR/junit-platform-console-standalone-1.11.3.jar${SEP}$BUILD_DIR$SEP$CLASSPATH" org.junit.platform.console.ConsoleLauncher -c src.Testing.GameStateTest
+#echo "GameLoopTest"
+#java -cp "$LIB_DIR/junit-platform-console-standalone-1.11.3.jar${SEP}$BUILD_DIR$SEP$CLASSPATH" org.junit.platform.console.ConsoleLauncher -c src.Testing.GameLoopTest
+echo "ScoreTest"
+java -cp "$LIB_DIR/junit-platform-console-standalone-1.11.3.jar${SEP}$BUILD_DIR$SEP$CLASSPATH" org.junit.platform.console.ConsoleLauncher -c src.Testing.ScoreTest

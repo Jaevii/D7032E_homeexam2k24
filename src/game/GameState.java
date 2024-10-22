@@ -12,6 +12,7 @@ public class GameState implements GameStateInterface {
 
     // Current player
     private int currentPlayerID;
+    private int winnerID;
 
     // Piles
     private ArrayList<PileInterface> piles;
@@ -27,6 +28,7 @@ public class GameState implements GameStateInterface {
         this.piles = piles;
         this.market = market;
         this.players = players;
+        this.winnerID = -1;
     }
 
     // Getters
@@ -46,6 +48,10 @@ public class GameState implements GameStateInterface {
         return players;
     }
 
+    public int getWinnerID() {
+        return winnerID;
+    }
+
     // Setters
     public void setCurrentPlayerID(int currentPlayerID) {
         this.currentPlayerID = currentPlayerID;
@@ -57,5 +63,9 @@ public class GameState implements GameStateInterface {
 
     public void setMarket(MarketInterface market) {
         this.market = market;
+    }
+
+    public void setWinnerID(int winnerID) {
+        this.winnerID = winnerID;
     }
 }

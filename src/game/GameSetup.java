@@ -28,8 +28,8 @@ public class GameSetup implements GameSetupInterface {
         parseInput(args);
 
         // Setup the game
-        setupGame();
         setupServer();
+        setupGame();
 
     }
 
@@ -46,8 +46,8 @@ public class GameSetup implements GameSetupInterface {
 
         } else if (userInput[0].matches("\\d+")) {
                 
-                this.numberOfHumans = Integer.parseInt(userInput[0]);
-                this.numberOfBots = Integer.parseInt(userInput[1]);
+            this.numberOfHumans = Integer.parseInt(userInput[0]);
+            this.numberOfBots = Integer.parseInt(userInput[1]);
 
         } else {
             System.out.println("Invalid input. Exiting...");

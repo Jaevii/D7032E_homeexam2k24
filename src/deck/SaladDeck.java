@@ -20,6 +20,7 @@ import src.pile.PileInterface;
 public class SaladDeck implements DeckInterface {
 
     private static final int NUMBER_OF_PILES = 3;
+    private ArrayList<CardInterface> testDeck;
 
     public SaladDeck() {}
 
@@ -80,6 +81,15 @@ public class SaladDeck implements DeckInterface {
         shuffle(deckOnion);
         shuffle(deckTomato);
 
+        // Add the cards to the test deck
+        this.testDeck = new ArrayList<CardInterface>();
+        this.testDeck.addAll(deckPepper);
+        this.testDeck.addAll(deckLettuce);
+        this.testDeck.addAll(deckCarrot);
+        this.testDeck.addAll(deckCabbage);
+        this.testDeck.addAll(deckOnion);
+        this.testDeck.addAll(deckTomato);
+
         int cardsPerVeggie = 3 * numberOfPlayers;
 
         ArrayList<CardInterface> deck = new ArrayList<>();
@@ -113,6 +123,10 @@ public class SaladDeck implements DeckInterface {
         piles.add(new Pile(pile3));
 
         return piles;
+    }
+
+    public ArrayList<CardInterface> getTestDeck() {
+        return this.testDeck;
     }
     
 }
