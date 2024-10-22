@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import src.logic.*;
 import src.pile.PileInterface;
 import src.player.PlayerInterface;
-import src.score.ScoreCalc;
+import src.score.SaladScoreCalc;
+import src.score.ScoreCalcInterface;
 import src.view.*;
 
 public class GameLoop implements GameLoopInterface {
@@ -13,7 +14,7 @@ public class GameLoop implements GameLoopInterface {
     private GameState gameState;
 
     private ViewInterface view;
-    private ScoreCalc scoreCalc;
+    private ScoreCalcInterface scoreCalc;
 
     private PlayerLogicInterface HumanLogic;
     private PlayerLogicInterface BotLogic;
@@ -24,7 +25,7 @@ public class GameLoop implements GameLoopInterface {
         this.gameState = gameState;
 
         this.view = new View();
-        this.scoreCalc = new ScoreCalc();
+        this.scoreCalc = new SaladScoreCalc();
 
         this.HumanLogic = new HumanLogic();
         this.BotLogic = new BotLogic();
@@ -53,7 +54,7 @@ public class GameLoop implements GameLoopInterface {
             thisPlayer.sendMessage("Your hand is:\n\n" + view.displayHand(thisPlayer) + "\n");
 
             // Print the game state
-            view.printGameState(players, gameState.getPiles(), gameState.getMarket());
+            view.printGameState(gameState);
 
             // Player's turn
             if (thisPlayer.isBot()) {

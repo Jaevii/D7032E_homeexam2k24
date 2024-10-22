@@ -2,6 +2,7 @@ package src.view;
 
 import java.util.ArrayList;
 
+import src.game.GameStateInterface;
 import src.market.MarketInterface;
 import src.pile.PileInterface;
 import src.player.PlayerInterface;
@@ -16,5 +17,5 @@ public interface ViewInterface {
 
     String printMarket(MarketInterface market);
 
-    void printGameState(ArrayList<PlayerInterface> players, ArrayList<PileInterface> piles, MarketInterface market);
+    void printGameState(GameStateInterface gameState);
 }

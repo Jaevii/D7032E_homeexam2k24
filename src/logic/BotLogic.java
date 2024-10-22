@@ -6,14 +6,15 @@ import src.game.GameStateInterface;
 import src.market.MarketInterface;
 import src.pile.PileInterface;
 import src.player.PlayerInterface;
-import src.score.ScoreCalc;
+import src.score.SaladScoreCalc;
+import src.score.ScoreCalcInterface;
 import src.card.CardInterface;
 
 public class BotLogic implements PlayerLogicInterface {
 
     private ArrayList<PileInterface> piles;
     private MarketInterface market;
-    private ScoreCalc scoreCalc = new ScoreCalc();
+    private ScoreCalcInterface scoreCalc = new SaladScoreCalc();
 
     @Override
     public void playTurn(PlayerInterface thisPlayer, GameStateInterface gameState) {

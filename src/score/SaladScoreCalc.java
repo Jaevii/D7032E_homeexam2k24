@@ -7,7 +7,7 @@ import src.card.CardType;
 import src.counter.Counter;
 import src.player.PlayerInterface;
 
-public class ScoreCalc {
+public class SaladScoreCalc implements ScoreCalcInterface {
 
     private Counter count = new Counter();
 

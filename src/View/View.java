@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import src.card.CardInterface;
 import src.card.CardType;
 import src.counter.Counter;
+import src.game.GameStateInterface;
 import src.market.MarketInterface;
 import src.pile.PileInterface;
 import src.player.PlayerInterface;
@@ -109,9 +110,8 @@ public class View implements ViewInterface {
     }
 
     @Override
-    public void printGameState(ArrayList<PlayerInterface> players, ArrayList<PileInterface> piles,
-            MarketInterface market) {
-        sendToAllPlayers(players, printPiles(piles));
-        sendToAllPlayers(players, printMarket(market));
+    public void printGameState(GameStateInterface gameState) {
+        sendToAllPlayers(gameState.getPlayers(), printPiles(gameState.getPiles()));
+        sendToAllPlayers(gameState.getPlayers(), printMarket(gameState.getMarket()));
     }
 }

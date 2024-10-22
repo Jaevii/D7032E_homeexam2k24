@@ -8,12 +8,13 @@ import src.market.MarketInterface;
 import src.pile.PileInterface;
 import src.player.PlayerInterface;
 import src.view.View;
+import src.view.ViewInterface;
 
 public class HumanLogic implements PlayerLogicInterface {
 
     private ArrayList<PileInterface> piles;
     private MarketInterface market;
-    private View view;
+    private ViewInterface view;
 
     @Override
     public void playTurn(PlayerInterface thisPlayer, GameStateInterface gameState) {
