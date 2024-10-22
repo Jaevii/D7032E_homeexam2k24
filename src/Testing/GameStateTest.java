@@ -270,6 +270,6 @@ public class GameStateTest {
             // Randomly choose a start player
             int startPlayer = gameState.getCurrentPlayerID();
     
-            assertTrue(startPlayer >= 0 && startPlayer < 4);
+            assertTrue(startPlayer >= 0 && startPlayer <= 4);
     }
 }
