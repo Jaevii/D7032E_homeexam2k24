@@ -16,8 +16,8 @@ public class GameLoop implements GameLoopInterface {
     private ViewInterface view;
     private ScoreCalcInterface scoreCalc;
 
-    private PlayerLogicInterface HumanLogic;
-    private PlayerLogicInterface BotLogic;
+    private PlayerLogicInterface humanLogic;
+    private PlayerLogicInterface botLogic;
 
 
     public GameLoop(GameStateInterface gameState) {
@@ -27,8 +27,8 @@ public class GameLoop implements GameLoopInterface {
         this.view = new View();
         this.scoreCalc = new SaladScoreCalc();
 
-        this.HumanLogic = new HumanLogic();
-        this.BotLogic = new BotLogic();
+        this.humanLogic = new HumanLogic();
+        this.botLogic = new BotLogic();
     }
  
     public void startGameLoop() {
@@ -58,11 +58,11 @@ public class GameLoop implements GameLoopInterface {
 
             // Player's turn
             if (thisPlayer.isBot()) {
-                this.BotLogic.playTurn(thisPlayer, gameState);
+                this.botLogic.playTurn(thisPlayer, gameState);
                 // Display the bot's new hand
                 view.sendToAllPlayers(players, "Bot " + thisPlayer.getPlayerID() + "'s new hand is now:\n\n" + view.displayHand(thisPlayer) + "\n");
             } else {
-                this.HumanLogic.playTurn(thisPlayer, gameState);
+                this.humanLogic.playTurn(thisPlayer, gameState);
                 // Display the player's new hand
                 view.sendToAllPlayers(players, "Player " + thisPlayer.getPlayerID() + "'s new hand is now:\n\n" + view.displayHand(thisPlayer) + "\n");
             }

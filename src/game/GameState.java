@@ -23,8 +23,8 @@ public class GameState implements GameStateInterface {
     // Player cards
     private ArrayList<PlayerInterface> players;
 
-    public GameState(int currentPlayerID, ArrayList<PileInterface> piles, MarketInterface market, ArrayList<PlayerInterface> players) {
-        this.currentPlayerID = currentPlayerID;
+    public GameState(int playerID, ArrayList<PileInterface> piles, MarketInterface market, ArrayList<PlayerInterface> players) {
+        this.currentPlayerID = playerID;
         this.piles = piles;
         this.market = market;
         this.players = players;
@@ -53,8 +53,8 @@ public class GameState implements GameStateInterface {
     }
 
     // Setters
-    public void setCurrentPlayerID(int currentPlayerID) {
-        this.currentPlayerID = currentPlayerID;
+    public void setCurrentPlayerID(int playerID) {
+        this.currentPlayerID = playerID;
     }
 
     public void setPiles(ArrayList<PileInterface> piles) {
@@ -65,7 +65,7 @@ public class GameState implements GameStateInterface {
         this.market = market;
     }
 
-    public void setWinnerID(int winnerID) {
-        this.winnerID = winnerID;
+    public void setWinnerID(int playerID) {
+        this.winnerID = playerID;
     }
 }

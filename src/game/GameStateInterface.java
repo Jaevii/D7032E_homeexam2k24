@@ -18,12 +18,12 @@ public interface GameStateInterface {
 
     int getWinnerID();
 
-    void setCurrentPlayerID(int currentPlayerID);
+    void setCurrentPlayerID(int playerID);
 
     void setPiles(ArrayList<PileInterface> piles);
 
     void setMarket(MarketInterface market);
 
-    void setWinnerID(int winnerID);
+    void setWinnerID(int playerID);
     
 }
