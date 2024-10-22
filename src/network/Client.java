@@ -20,9 +20,9 @@ public class Client {
             nextMessage = (String) inFromServer.readObject();
             System.out.println(nextMessage);
             if (nextMessage.contains("Take") || nextMessage.contains("into")) {
-                try (Scanner in = new Scanner(System.in)) {
-                    outToServer.writeObject(in.nextLine());
-                }
+                Scanner in = new Scanner(System.in);
+                outToServer.writeObject(in.nextLine());
+                outToServer.flush();
             }
         }
         

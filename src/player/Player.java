@@ -18,7 +18,7 @@ public abstract class Player implements PlayerInterface{
     private Socket connection;
     private ObjectInputStream inFromClient;
     private ObjectOutputStream outToClient;
-    private Scanner in = new Scanner(System.in);
+    Scanner in = new Scanner(System.in);
 
     public Player(int playerID, Socket connection, ObjectInputStream inFromClient, ObjectOutputStream outToClient, boolean online) {
         this.playerID = playerID;
