@@ -11,9 +11,11 @@ public class Counter {
     public int countVegetable(ArrayList<CardInterface> hand, CardType vegetable) {
         int count = 0;
         for (CardInterface card : hand) {
-            if (card.getBackside().equals(vegetable) && !card.frontsideUp()) {
-                count++;
-            }
+            if (!card.frontsideUp()) {
+                if (card.getBackside().equals(vegetable)) {
+                    count++;
+                }
+            }   
         }
         return count;
     }
