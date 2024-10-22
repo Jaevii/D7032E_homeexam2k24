@@ -11,7 +11,7 @@ import src.view.*;
 
 public class GameLoop implements GameLoopInterface {
 
-    private GameState gameState;
+    private GameStateInterface gameState;
 
     private ViewInterface view;
     private ScoreCalcInterface scoreCalc;
@@ -20,7 +20,7 @@ public class GameLoop implements GameLoopInterface {
     private PlayerLogicInterface BotLogic;
 
 
-    public GameLoop(GameState gameState) {
+    public GameLoop(GameStateInterface gameState) {
 
         this.gameState = gameState;
 

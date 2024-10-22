@@ -2,7 +2,7 @@ package src;
 
 import src.game.GameLoop;
 import src.game.GameSetup;
-import src.game.GameState;
+import src.game.GameStateInterface;
 import src.network.Client;
 
 public class PointSalad {
@@ -26,7 +26,7 @@ public class PointSalad {
             GameSetup setup = new GameSetup(args);
 
             // Create game state
-            GameState gameState = setup.getState();
+            GameStateInterface gameState = setup.getState();
 
             // Create game loop object
             GameLoop gameInstance = new GameLoop(gameState);

@@ -101,7 +101,7 @@ public class GameSetup implements GameSetupInterface {
         }
     }
 
-    public GameState getState() {
+    public GameStateInterface getState() {
         return new GameState(this.currentPlayerID, this.piles, this.market, this.players);
     }
 }
