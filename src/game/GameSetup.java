@@ -38,11 +38,10 @@ public class GameSetup implements GameSetupInterface {
         if (userInput.length == 0) {
 
             System.out.println("Please enter the number of players (1-6): ");
-            try (Scanner in = new Scanner(System.in)) {
-                this.numberOfHumans = in.nextInt();
-                System.out.println("Please enter the number of bots (0-5): ");
-                this.numberOfBots = in.nextInt();
-            }
+            Scanner in = new Scanner(System.in); 
+            this.numberOfHumans = in.nextInt();
+            System.out.println("Please enter the number of bots (0-5): ");
+            this.numberOfBots = in.nextInt();
 
         } else if (userInput[0].matches("\\d+")) {
                 

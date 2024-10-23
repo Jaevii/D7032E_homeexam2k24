@@ -29,6 +29,8 @@ public class GameLoop implements GameLoopInterface {
 
         this.humanLogic = new HumanLogic();
         this.botLogic = new BotLogic();
+
+        startGameLoop();
     }
  
     public void startGameLoop() {

@@ -15,4 +15,4 @@ CLASSPATH=$(find "$LIB_DIR" -name "*.jar" | tr '\n' "$SEP")
 
 # Run the main class
 echo "Running server for $MAIN_CLASS..."
-java -cp "$BUILD_DIR$SEP$CLASSPATH" "$MAIN_CLASS" 2 1
+java -cp "$BUILD_DIR$SEP$CLASSPATH" "$MAIN_CLASS"

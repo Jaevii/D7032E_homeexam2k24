@@ -1,7 +1,9 @@
 package src;
 
 import src.game.GameLoop;
+import src.game.GameLoopInterface;
 import src.game.GameSetup;
+import src.game.GameSetupInterface;
 import src.game.GameStateInterface;
 import src.network.Client;
 
@@ -9,10 +11,8 @@ public class PointSalad {
 
     public PointSalad(String[] args) {
 
-        System.out.println("Starting Point Salad with args: " + args[0]);
-
         // If client
-        if (args[0].equals("127.0.0.1")) {
+        if (args.length > 0 && args[0].equals("127.0.0.1")) {
 
             try {
                 new Client(args[0]);
@@ -23,21 +23,14 @@ public class PointSalad {
         } else { // Else server
 
             // Create setup
-            GameSetup setup = new GameSetup(args);
+            GameSetupInterface setup = new GameSetup(args);
 
             // Create game state
             GameStateInterface gameState = setup.getState();
 
             // Create game loop object
-            GameLoop gameInstance = new GameLoop(gameState);
-
-            // Start game loop
-            gameInstance.startGameLoop();
-
+            GameLoopInterface gameInstance = new GameLoop(gameState);
         }
-
-        
-
     }
 
     public static void main(String[] args) {

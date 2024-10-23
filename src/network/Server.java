@@ -21,7 +21,7 @@ public class Server {
         players.add(new Human(0, null, null, null, false)); // add this instance as a player
         
         for (int i = 0; i < numberOfBots; i++) {
-            players.add(new Bot(i + 1, null, null, null)); // add a bot
+            players.add(new Bot(i + 1)); // add a bot
         }
 
         if (numberPlayers > 1) {

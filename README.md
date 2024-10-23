@@ -2,21 +2,33 @@
 
 This is the home exam for the course [D7032E Software engineering](https://www.ltu.se/utbildning/kurs/d70/d7032e-programvaruteknik) for fourth year students in Computer Science at Luleå tekniska universitet.
 
-## Requirements
-
 ## How to run
 
 1. Download the repo files
 
 2. While inside the repo folder, run in your terminal:
-```chmod +x compile.sh server.sh client.sh```
+```bash
+chmod +x compile.sh server.sh client.sh
+```
 
-3. Run ```./compile.sh``` 
+3. Compile with:
+```bash
+./compile.sh
+``` 
 
-4. Run ```./server.sh``` to start and host the server
+4. To start and host the server, run:
+```bash
+./server.sh
+```
 
-5. Run ```./client.sh``` to connect to the server from another client
+5. To connect to the server from another client, run:
+```bash
+./client.sh
+```
 
 ## Testing
 
-
+Run tests with:
+```bash
+./runTests.sh
+```

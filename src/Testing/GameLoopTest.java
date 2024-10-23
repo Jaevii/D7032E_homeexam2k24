@@ -156,7 +156,7 @@ public class GameLoopTest {
         // Create players
         ArrayList<PlayerInterface> players = new ArrayList<PlayerInterface>();
         for (int i = 0; i < 3; i++) {
-            players.add(new Bot(i, null, null, null)); 
+            players.add(new Bot(i)); 
         }
 
         int currentPlayer = (int) (Math.random() * 3);
@@ -192,7 +192,7 @@ public class GameLoopTest {
         // Create players
         ArrayList<PlayerInterface> players = new ArrayList<PlayerInterface>();
         for (int i = 0; i < 3; i++) {
-            players.add(new Bot(i, null, null, null)); 
+            players.add(new Bot(i)); 
         }
 
         int currentPlayer = (int) (Math.random() * 3);
